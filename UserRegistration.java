@@ -55,13 +55,13 @@ public class UserRegistration {
 		
 	}
 	private String validatePassword(String pass) {
-		String expression = "(?=.*[A-Z])";	//Pattern for Password
+		String expression = "(?=.*[A-Z])(?=.*[0-9])";	//Pattern for Password
 		Pattern pattern = Pattern.compile(expression);
 		Matcher match = pattern.matcher(pass);
 		if(match.find()) {
 			return "valid";
 		}
-		return "invalid";
+		return "invalid";		
 		
 	}	
 }
