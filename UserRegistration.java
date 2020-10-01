@@ -12,10 +12,19 @@ public class UserRegistration {
 		String firstName = sc.nextLine();
 		System.out.println("Enter the last name");
 		String lastName = sc.nextLine();
+		System.out.println("Enter the Email Id");
+		String Email = sc.nextLine();
+		System.out.println("Enter the Phone Number");
+		String Phone = sc.nextLine();
+		System.out.println("Enter the Password");
+		String Password = sc.nextLine();
 		
 		System.out.println(firstName + " is " +user.validateFInput(firstName)); //Validating firstName
 		System.out.println(lastName + " is " +user.validateLInput(lastName)); //Validating lastName
-		sc.close();
+		System.out.println(Email + " is " +user.validateEmail(Email));	// Validating Email
+		System.out.println(Phone+ " is " +user.validateNumber(Phone));	// Validating Number
+		System.out.println(Password+ " is " +user.validatePassword(Password));
+		user.verifyEmail();
 	}
 	private String validateFInput(String fname) {
 		String expression = "(^[A-Z]{1})[a-z]{2,}$"; // Pattern for Names
@@ -63,6 +72,23 @@ public class UserRegistration {
 		}
 		return "invalid";		
 		
+	}
+
+	private void verifyEmail() {
+		System.out.println("abc@gmail.com" + " is " +validateEmail("abc@gmail.com"));
+		System.out.println("abc-100@yahoo.com" + " is " +validateEmail("abc-100@yahoo.com"));
+		System.out.println("abc.100@yahoo.com" + " is " +validateEmail("abc.100@yahoo.com"));
+		System.out.println("abc-100@abc.net" + " is " +validateEmail("abc-100@abc.net"));
+		System.out.println("abc.100@abc.com.au" + " is " +validateEmail("abc.100@abc.com.au"));
+		System.out.println("abc@gmail.com.com" + " is " +validateEmail("abc@gmail.com.com"));
+		System.out.println("abc@.com.my" + " is " +validateEmail("abc@.com.my"));
+		System.out.println("abc123@gmail.a" + " is " +validateEmail("abc123@gmail.a"));
+		System.out.println("abc123@.com" + " is " +validateEmail("abc123@.com"));
+		System.out.println(".abc@abc.com" + " is " +validateEmail(".abc@abc.com"));
+		System.out.println("abc()*@gmail.com" + " is " +validateEmail("abc()*@gmail.com"));
+		System.out.println("abc@%*.com" + " is " +validateEmail("abc@%*.com"));
+		System.out.println("abc..2002@gmail.com" + " is " +validateEmail("abc..2002@gmail.com"));
+		System.out.println("abc@abc@gmail.com" + " is " +validateEmail("abc@abc@gmail.com"));
 	}	
 }
 
